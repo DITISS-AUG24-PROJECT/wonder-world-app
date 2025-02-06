@@ -16,7 +16,7 @@ services:
     ports:
       - "5000:5000"
     depends_on:
-      - mongodb
+      - mongodb-service
 
   frontend:
     container_name: frontend
@@ -26,8 +26,8 @@ services:
     ports:
       - "5173:5173"
     depends_on:
-      - redis
-      - mongodb
+      - redis-service
+      - mongodb-service
 
   redis-service:
     container_name: redis
@@ -36,7 +36,7 @@ services:
     expose:
         - 6379
     depends_on:
-      - mongodb
+      - mongodb-service
 
 volumes:
   data:
